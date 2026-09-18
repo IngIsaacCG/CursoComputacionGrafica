@@ -1,5 +1,5 @@
-//Isaac Chávez García				Previo 05
-// 20201020046						12/09/2026
+//Isaac Chávez García				Practica 5
+// 20201020046						18/09/2026
 
 #include<iostream>
 #include <GL/glew.h>

@@ -207,7 +207,7 @@ int main() {
 
 		glBindVertexArray(VAO);
 		
-		//Model 
+		//Model Hombro
 		model = glm::rotate(model, glm::radians(hombro), glm::vec3(0.0f, 0.0, 1.0f)); //hombro
 		modelTemp = model = glm::translate(model, glm::vec3(1.5f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(3.0f, 1.0f, 1.0f));
@@ -396,6 +396,14 @@ int main() {
 		
 		// Swap the screen buffers
 		glfwSwapBuffers(window);
+
+		//Mostrar parametros en consola
+		std::cout << "Rotacion antebraso: "<< hombro << std::endl;
+		std::cout << "Rotacion codo: " << codo << std::endl;
+		std::cout << "Rotacion muñeca: " << muneca << std::endl;
+		std::cout << "Rotacion falanje 1: " << dedo1 << std::endl;
+		std::cout << "Rotacion falanje 2: " << dedo2 << std::endl;
+		std::cout << "Rotacion falanje 3: " << dedo3 << std::endl;
 	
 	}
 	glDeleteVertexArrays(1, &VAO);
@@ -425,30 +433,79 @@ int main() {
 		 rot += 0.18f;
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		 rot -= 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-		 hombro += 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-		 hombro -= 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
-		 codo += 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
-		 codo -= 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
-		 muneca += 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
-		 muneca -= 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-		 dedo1 += 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		 dedo1 -= 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 dedo2 += 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
-		 dedo2 -= 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
-		 dedo3 += 0.18f;
-	 if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
-		 dedo3 -= 0.18f;
+	 if (hombro <= 90.0f && hombro >= -90.0f) {
+		 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+			 hombro += 0.18f;
+		 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
+			 hombro -= 0.18f;
+	 }
+	 else {
+		 if (hombro > 90.0f)
+			 hombro = 90.0f;
+		 if (hombro < -90.0f)
+			 hombro = -90.0f;
+	 }
+	 if (codo <= 140.0f && codo >= 0.0f) {
+		 if (glfwGetKey(window, GLFW_KEY_T) == GLFW_PRESS)
+			 codo += 0.18f;
+		 if (glfwGetKey(window, GLFW_KEY_G) == GLFW_PRESS)
+			 codo -= 0.18f;
+	 }
+	 else {
+		 if (codo > 140.0f)
+			 codo = 140.0f;
+		 if (codo < 0.0f)
+			 codo = 0.0f;
+	 }
+	 if (muneca <=45 && muneca >= -45) {
+		 if (glfwGetKey(window, GLFW_KEY_H) == GLFW_PRESS)
+			 muneca += 0.18f;
+		 if (glfwGetKey(window, GLFW_KEY_Y) == GLFW_PRESS)
+			 muneca -= 0.18f;
+	 }
+	 else {
+		 if (muneca > 45.0f)
+			 muneca = 45.0f;
+		 if (muneca < -45.0f)
+			 muneca = -45.0f;
+	 }
+	 if (dedo1 >= -90.0f && dedo1 <= 0.0f) {
+		 if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
+			 dedo1 += 0.18f;
+		 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
+			 dedo1 -= 0.18f;
+	 }
+	 else {
+		 if (dedo1 < -90.0f)
+			 dedo1 = -90.0f;
+		 if (dedo1 > 0.0f)
+			 dedo1 = 0.0f;
+	 }
+	 if (dedo2 >= -90.0f && dedo2 <= 0.0f) {
+		 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
+			 dedo2 += 0.18f;
+		 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
+			 dedo2 -= 0.18f;
+	 }
+	 else {
+		 if (dedo2 < -90.0f)
+			 dedo2 = -90.0f;
+		 if (dedo2 > 0.0f)
+			 dedo2 = 0.0f;
+	 }
+	 if (dedo3 >= -45.0f && dedo3 <= 0.0f) {
+		 if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
+			 dedo3 += 0.18f;
+		 if (glfwGetKey(window, GLFW_KEY_L) == GLFW_PRESS)
+			 dedo3 -= 0.18f;
+	 }
+	 else {
+		 if (dedo3 < -45.0f)
+			 dedo3 = -45.0f;
+		 if (dedo3 > 0.0f)
+			 dedo3 = 0.0f;
+	 }
+	 
  }
 
 

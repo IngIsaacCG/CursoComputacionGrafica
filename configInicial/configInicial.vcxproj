@@ -141,10 +141,6 @@
   <ItemGroup>
     <ClCompile Include="Carga de Modelos.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Shader\modelLoading.frag" />
-    <None Include="Shader\modelLoading.vs" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

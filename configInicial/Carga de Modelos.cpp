@@ -101,7 +101,8 @@ int main( )
     
     // Load models
     Model dog((char*)"Models/RedDog.obj");
-	Model duck((char*)"Models/SM_rubber_duck.obj");//Agrgue otro modelo para dibujar en la escena
+	Model girl((char*)"Models/Persona/Character+Amanda_Model_File+OBJ.obj");
+	//Model duck((char*)"Models/SM_rubber_duck.obj");//Agrgue otro modelo para dibujar en la escena
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
   
@@ -133,16 +134,21 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
 		dog.Draw(shader);//Dibuja el modelo cargado
 
-        //Se pueden usar comando ya vistos en practicas pasadas para un modelo en 3D
-		model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
-		model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
-		glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        dog.Draw(shader);
-
-        model = glm::translate(model, glm::vec3(2.0, 0.0f, -0.5f));
-		model = glm::scale(model, glm::vec3(0.033f, 0.033f, 0.033f));
+		model = glm::translate(model, glm::vec3(0.25f, 0.0f, 0.25f));
+        model = glm::scale(model, glm::vec3(0.75f, 0.75f, 0.75f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		duck.Draw(shader);//Dibuja el modelo cargado
+		girl.Draw(shader);
+
+  //      //Se pueden usar comando ya vistos en practicas pasadas para un modelo en 3D
+		//model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));
+		//model = glm::scale(model, glm::vec3(2.0f, 2.0f, 2.0f));
+		//glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+  //      dog.Draw(shader);
+
+  //      model = glm::translate(model, glm::vec3(2.0, 0.0f, -0.5f));
+		//model = glm::scale(model, glm::vec3(0.033f, 0.033f, 0.033f));
+  //      glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		//duck.Draw(shader);//Dibuja el modelo cargado
 
         // Swap the buffers
         glfwSwapBuffers( window );

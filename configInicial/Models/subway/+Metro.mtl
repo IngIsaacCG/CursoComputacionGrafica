@@ -1,0 +1,507 @@
+# Blender 5.2.2 LTS MTL File: '+Metro.blend'
+# www.blender.org
+
+newmtl Black_brushed_metal
+Ns 1000.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Concrete_Wall
+Ns 10.000005
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures/concrete wall diffuse.jpg
+map_Ns textures/concrete wall rough.jpg
+map_Ks -s 4 4 4 textures/concrete wall spec AO bump.jpg
+map_Bump -bm 1.000000 textures/normal map.png
+
+newmtl Dark_iron
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures/tiled_plane_DefaultMaterial_BaseColor.png
+map_Ns textures/tiled_plane_DefaultMaterial_Roughness.png
+map_Bump -bm 0.400000 textures/tiled_plane_DefaultMaterial_Normal.jpg
+
+newmtl Dark_metal
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Frozen_white_metal
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 3
+map_Kd textures/DefaultMaterial_BaseColor.jpg
+map_Ns textures/DefaultMaterial_Roughness.jpg
+map_Bump -bm 1.000000 textures/DefaultMaterial_Normal.jpg
+
+newmtl Material.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.003
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.004
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.005
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.006
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.007
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.008
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.009
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.010
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.011
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.012
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.013
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.014
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.015
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.008344 0.008344 0.008344
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.016
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.042451 0.042451 0.042451
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.017
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.035932 0.035932 0.035932
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.018
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.054758 0.020806 0.008175
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/bronze_basecolor.png
+map_Ns textures/bronze_roughness.png
+map_Bump -bm 1.000000 textures/bronze_normal.png
+
+newmtl Material.020
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_white_diffuse.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.022
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.007044 0.393203 0.524330
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/DefaultMaterial_BaseColor.jpg
+map_Ns textures/DefaultMaterial_Roughness.jpg
+map_Bump -bm 1.000000 textures/DefaultMaterial_Normal.jpg
+
+newmtl Material.023
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.000000 0.000000 0.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/Metal_basecolor.png
+map_Ns textures/Metal_roughness.png
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/Metal_normal.png
+
+newmtl Material.024
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.049616 0.049616 0.049616
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.025
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.049616 0.049616 0.049616
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.026
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.049616 0.049616 0.049616
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.027
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.049616 0.049616 0.049616
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.028
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.049616 0.049616 0.049616
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_basecolor.jpg
+map_Ns textures/metal_glossiness.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.029
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_white_diffuse.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.030
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_white_diffuse.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl Material.034
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Wet cement_BaseColor.png
+map_Ns textures/Wet cement_Roughness.png
+map_Bump -bm 1.000000 textures/Wet cement_Normal.png
+
+newmtl Material.036
+Ns 360.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd textures/Wet cement_BaseColor.png
+map_Ns textures/Wet cement_Roughness.png
+map_Bump -bm 1.000000 textures/Wet cement_Normal.png
+
+newmtl Tiles_05
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+map_Kd textures/Tiles074_2K_Color.jpg
+map_Ns textures/Tiles074_2K_Roughness.jpg
+map_Bump -bm 1.000000 textures/Tiles074_2K_Normal.jpg
+
+newmtl White_painted_lightly_scratched_metal
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_white_diffuse.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl White_painted_lightly_scratched_metal.001
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_white_diffuse.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg
+
+newmtl White_painted_lightly_scratched_metal.002
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd textures/metal_white_diffuse.jpg
+map_Ks textures/metal_specular.jpg
+map_refl textures/metal_metallic.jpg
+map_Bump -bm 1.000000 textures/metal_normal_opengl.jpg

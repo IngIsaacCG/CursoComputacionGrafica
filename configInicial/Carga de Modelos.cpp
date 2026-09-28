@@ -1,6 +1,6 @@
 //Chavez Garcia Isaac
-// 20/09/2026
-//Previo 06
+//25/09/2026
+//Practica 06
 //320299461
 
 
@@ -101,7 +101,8 @@ int main( )
     
     // Load models
     Model dog((char*)"Models/RedDog.obj");
-	Model girl((char*)"Models/Persona/Character+Amanda_Model_File+OBJ.obj");
+	Model subway((char*)"Models/subway/+Metro.obj");
+	Model woman((char*)"Models/woman/Tessa.obj");
 	//Model duck((char*)"Models/SM_rubber_duck.obj");//Agrgue otro modelo para dibujar en la escena
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
@@ -131,13 +132,28 @@ int main( )
 
         // Draw the loaded model
         glm::mat4 model(1);
-        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		dog.Draw(shader);//Dibuja el modelo cargado
+  //      glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+		//dog.Draw(shader);//Dibuja el modelo cargado
 
-		model = glm::translate(model, glm::vec3(0.25f, 0.0f, 0.25f));
-        model = glm::scale(model, glm::vec3(0.75f, 0.75f, 0.75f));
+        model = glm::mat4(1);//Inicializa la matriz
+        model = glm::translate(model, glm::vec3(-4.0f, -2.5f, -2.5f));
+        model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-		girl.Draw(shader);
+		subway.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.0f, -0.1f, 1.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        dog.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        woman.Draw(shader);
 
   //      //Se pueden usar comando ya vistos en practicas pasadas para un modelo en 3D
 		//model = glm::translate(model, glm::vec3(3.0f, 0.0f, 0.0f));

@@ -1,7 +1,7 @@
 /*Chavez Garcia Isaac
 * 320299461
 * 27/09/2026
-* Previo 07
+* Practica 07
 */
 
 
@@ -104,15 +104,65 @@ int main()
 	Shader lampShader("Shader/lamp.vs", "Shader/lamp.frag");
 
 	// Set up vertex data (and buffer(s)) and attribute pointers
-	GLfloat vertices[] =
+	GLfloat vertices1[] =
 	{
 		// Positions            // Colors              // Texture Coords
-		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,// Bottom Left, puede recorrer la textura
-		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,// Bottom Right,puede repetir la textura si 0.0f > 1.0f
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f,// Top Right, puede repetir la textura si 0.0f > 1.0f
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,// Top Left, puede recorrer la textura
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.3391f,// Bottom Left, puede recorrer la textura
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.1577f,0.3391f,// Bottom Right,puede repetir la textura si 0.0f > 1.0f
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.1577f,0.6643f,// Top Right, puede repetir la textura si 0.0f > 1.0f
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.66643f,// Top Left, puede recorrer la textura
 
 		
+	};
+
+	GLfloat vertices2[] =
+	{
+		// Positions            // Colors              // Texture Coords
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.1666f,0.3391f,
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.3286f,0.3391f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.3286f,0.6643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.1666f,0.66643f,
+
+	};
+
+	GLfloat vertices3[] =
+	{
+		// Positions            // Colors              // Texture Coords
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.3363f,0.3391f,
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.4979f,0.3391f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.4979f,0.6643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.3363f,0.6643f,
+
+	};
+
+	GLfloat vertices4[] =
+	{
+		// Positions            // Colors              // Texture Coords
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.5038f,0.3391f,
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.6655f,0.3391f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.6655f,0.6643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.5038f,0.66643f,
+
+	};
+
+	GLfloat vertices5[] =
+	{
+		// Positions            // Colors              // Texture Coords
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.6704f,0.3391f,
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.8333f,0.3391f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.8333f,0.6643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.6704f,0.66643f,
+
+	};
+
+	GLfloat vertices6[] =
+	{
+		// Positions            // Colors              // Texture Coords
+		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.8375f,0.3391f,
+		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.3391f,
+		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,0.6643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.8375f,0.66643f,
+
 	};
 
 	GLuint indices[] =
@@ -130,7 +180,7 @@ int main()
 
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices6), vertices6, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
@@ -160,35 +210,10 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);//Establece el filtro de magnificación de la textura
 	// Diffuse map
 	/*image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels, 0);*///Carga la imagen y almacena el ancho, alto y numero de canales en las variables correspondientes
-	image = stbi_load("images/fuego.png", &textureWidth, &textureHeight, &nrChannels, 0);
+	image = stbi_load("images/carasDado.png", &textureWidth, &textureHeight, &nrChannels, 0);
 	glBindTexture(GL_TEXTURE_2D, texture1);//Enlaza la textura con el identificador generado
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);//Establece la imagen de la textura RGB para imagen normal RGBA para imagen con transparencia
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);//Establece la imagen de la textura RGB para imagen normal RGBA para imagen con transparencia
 	glGenerateMipmap(GL_TEXTURE_2D);
-	if (image)
-	{
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);//Establece la imagen de la textura RGB para imagen normal RGBA para imagen con transparencia
-		glGenerateMipmap(GL_TEXTURE_2D);
-	}
-	else
-	{
-		std::cout << "Failed to load texture" << std::endl;
-	}
-	stbi_image_free(image);
-
-	// Segunda imagen
-	GLuint texture2;
-	glGenTextures(1, &texture2); 
-	glBindTexture(GL_TEXTURE_2D, texture2);
-	stbi_set_flip_vertically_on_load(true);
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
-	// Diffuse map
-	/*image = stbi_load("images/checker_Tex.png", &textureWidth, &textureHeight, &nrChannels, 0);*///Carga la imagen y almacena el ancho, alto y numero de canales en las variables correspondientes
-	image = stbi_load("images/muestra.jpg", &textureWidth, &textureHeight, &nrChannels, 0);
-	
 	if (image)
 	{
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);//Establece la imagen de la textura RGB para imagen normal RGBA para imagen con transparencia
@@ -199,9 +224,7 @@ int main()
 		std::cout << "Failed to load texture" << std::endl;
 	}
 	stbi_image_free(image);
-
 	
-
 	// Game loop
 	while (!glfwWindowShouldClose(window))
 	{
@@ -244,11 +267,23 @@ int main()
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		/*glBindVertexArray(0);*/
 
+		/*model = glm::mat4(1);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texture1);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
 		model = glm::mat4(1);
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture2);
-		model = glm::translate(model, glm::vec3(1.0f, 0.5f, 0.0f));
+		glBindTexture(GL_TEXTURE_2D, texture1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		model = glm::mat4(1);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texture1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));*/
 
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);

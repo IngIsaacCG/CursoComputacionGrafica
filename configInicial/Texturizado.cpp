@@ -1,6 +1,6 @@
 /*Chavez Garcia Isaac
 * 320299461
-* 27/09/2026
+* 02/10/2026
 * Practica 07
 */
 
@@ -110,7 +110,7 @@ int main()
 		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.3391f,// Bottom Left, puede recorrer la textura
 		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.1577f,0.3391f,// Bottom Right,puede repetir la textura si 0.0f > 1.0f
 		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.1577f,0.6643f,// Top Right, puede repetir la textura si 0.0f > 1.0f
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.66643f,// Top Left, puede recorrer la textura
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.6643f,// Top Left, puede recorrer la textura
 
 		
 	};
@@ -121,7 +121,7 @@ int main()
 		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.1666f,0.3391f,
 		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		0.3286f,0.3391f,
 		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    0.3286f,0.6643f,
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.1666f,0.66643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.1666f,0.6643f,
 
 	};
 
@@ -161,7 +161,7 @@ int main()
 		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.8375f,0.3391f,
 		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.3391f,
 		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,0.6643f,
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.8375f,0.66643f,
+		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.8375f,0.6643f,
 
 	};
 
@@ -180,9 +180,34 @@ int main()
 
 	glBindVertexArray(VAO);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices6), vertices6, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices1), vertices1, GL_STATIC_DRAW);
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// Position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	// Color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	// Texture Coordinate attribute
+	//Sintaxis: glVertexAttribPointer(indice, tamaño, tipo, normalizado, stride (numero de bites del comienzo del conjunto al siguiente), puntero);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
+	glBindVertexArray(0);
+
+	//Creacion de otra figura
+	GLuint VBO1, VAO1, EBO1;
+	glGenVertexArrays(1, &VAO1);
+	glGenBuffers(1, &VBO1);
+	glGenBuffers(1, &EBO1);
+
+	glBindVertexArray(VAO1);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO1);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices2), vertices2, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO1);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	// Position attribute
@@ -194,6 +219,104 @@ int main()
 	// Texture Coordinate attribute
 	//Sintaxis: glVertexAttribPointer(indice, tamaño, tipo, normalizado, stride (numero de bites del comienzo del conjunto al siguiente), puntero);
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid *)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
+	glBindVertexArray(0);
+
+	GLuint VBO2, VAO2, EBO2;
+	glGenVertexArrays(1, &VAO2);
+	glGenBuffers(1, &VBO2);
+	glGenBuffers(1, &EBO2);
+
+	glBindVertexArray(VAO2);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO2);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices3), vertices3, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO2);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// Position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	// Color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	// Texture Coordinate attribute
+	//Sintaxis: glVertexAttribPointer(indice, tamaño, tipo, normalizado, stride (numero de bites del comienzo del conjunto al siguiente), puntero);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
+	glBindVertexArray(0);
+
+	//Creacion de otra figura
+	GLuint VBO3, VAO3, EBO3;
+	glGenVertexArrays(1, &VAO3);
+	glGenBuffers(1, &VBO3);
+	glGenBuffers(1, &EBO3);
+
+	glBindVertexArray(VAO3);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO3);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices4), vertices4, GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO3);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// Position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	// Color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	// Texture Coordinate attribute
+	//Sintaxis: glVertexAttribPointer(indice, tamaño, tipo, normalizado, stride (numero de bites del comienzo del conjunto al siguiente), puntero);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
+	glBindVertexArray(0);
+
+	//Creacion de otra figura
+	GLuint VBO4, VAO4, EBO4;
+	glGenVertexArrays(1, &VAO4);
+	glGenBuffers(1, &VBO4);
+	glGenBuffers(1, &EBO4);
+
+	glBindVertexArray(VAO4);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO4);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices5), vertices5, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO4);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// Position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	// Color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	// Texture Coordinate attribute
+	//Sintaxis: glVertexAttribPointer(indice, tamaño, tipo, normalizado, stride (numero de bites del comienzo del conjunto al siguiente), puntero);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
+	glBindVertexArray(0);
+
+	//Creacion de otra figura
+	GLuint VBO5, VAO5, EBO5;
+	glGenVertexArrays(1, &VAO5);
+	glGenBuffers(1, &VBO5);
+	glGenBuffers(1, &EBO5);
+
+	glBindVertexArray(VAO5);
+	glBindBuffer(GL_ARRAY_BUFFER, VBO5);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices6), vertices6, GL_STATIC_DRAW);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO5);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	// Position attribute
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	// Color attribute
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	// Texture Coordinate attribute
+	//Sintaxis: glVertexAttribPointer(indice, tamaño, tipo, normalizado, stride (numero de bites del comienzo del conjunto al siguiente), puntero);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(2);
 	glBindVertexArray(0);
 
@@ -263,31 +386,50 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));// Set the matrix in the lamp shader
 
 		// Draw the light object (using light's vertex attributes)
-		glBindVertexArray(VAO);
+		glBindVertexArray(VAO1);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		/*glBindVertexArray(0);*/
 
-		/*model = glm::mat4(1);
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture1);
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
-
 		model = glm::mat4(1);
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture1);
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
-		model = glm::mat4(1);
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture1);
-		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 1.0f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));*/
-
+		glBindVertexArray(VAO);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.5f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glBindVertexArray(VAO2);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(-0.5f, 0.0f, 0.5f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glBindVertexArray(VAO3);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.5f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glBindVertexArray(VAO4);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+		model = glm::mat4(1);
+		model = glm::translate(model, glm::vec3(0.0f, 0.5f, 0.5f));
+		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+		glBindVertexArray(VAO5);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+		glBindVertexArray(0);
 
 		// Swap the screen buffers
 		glfwSwapBuffers(window);

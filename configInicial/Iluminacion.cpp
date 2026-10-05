@@ -1,7 +1,7 @@
 
 /*Chavez Garcia Isaac
 * 320299461
-* Previo 08
+* Practica 08
 * 04 de octubre del 2026
 */
 
@@ -109,8 +109,14 @@ int main()
 
     // Load models
     Model red_dog((char*)"Models/RedDog.obj");
+    Model dog((char*)"Models/RedDog.obj");
+    Model subway((char*)"Models/subway/+Metro.obj");
+    Model woman((char*)"Models/woman/Tessa.obj");
     Model duck((char*)"Models/Duck/DUCK.obj");
+	Model sun((char*)"Models/Sun/Sun.obj");
+	Model moon((char*)"Models/moon/Asteroid.obj");
     glm::mat4 projection = glm::perspective(camera.GetZoom(), (float)SCREEN_WIDTH / (float)SCREEN_HEIGHT, 0.1f, 100.0f);
+
 
 
     float vertices[] = {
@@ -246,27 +252,45 @@ int main()
 
         // Draw the loaded model
         glm::mat4 model(1);
-        model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
-        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        glBindVertexArray(VAO);
-        red_dog.Draw(lightingShader);
-        //glDrawArrays(GL_TRIANGLES, 0, 36);
-        
+  //      model = glm::scale(model, glm::vec3(3.0f, 3.0f, 3.0f));
+  //      glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+  //      glBindVertexArray(VAO);
+  //      red_dog.Draw(lightingShader);
+  //      //glDrawArrays(GL_TRIANGLES, 0, 36);
+  //      
 
-        glBindVertexArray(0);
+  //      glBindVertexArray(0);
 
+
+  //      model = glm::mat4(1);
+		//model = glm::translate(model, glm::vec3(1.0f, -1.5f, 0.0f));
+  //      model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
+  //      glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+  //      glBindVertexArray(VAO);
+  //      duck.Draw(lightingShader);
+
+
+  //      glBindVertexArray(0);
+
+        model = glm::mat4(1);//Inicializa la matriz
+        model = glm::translate(model, glm::vec3(-4.0f, -2.5f, -2.5f));
+        model = glm::scale(model, glm::vec3(2.5f, 2.5f, 2.5f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        subway.Draw(shader);
 
         model = glm::mat4(1);
-		model = glm::translate(model, glm::vec3(1.0f, -1.5f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));
-        glUniformMatrix4fv(glGetUniformLocation(lightingShader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        glBindVertexArray(VAO);
-        duck.Draw(lightingShader);
+        model = glm::translate(model, glm::vec3(0.0f, -0.1f, 1.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        dog.Draw(shader);
 
-
-        glBindVertexArray(0);
-
-
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+        model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        woman.Draw(shader);
 
 
         lampshader.Use();
@@ -277,7 +301,8 @@ int main()
         model = glm::scale(model, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+		moon.Draw(lightingShader);
+        //glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
 
@@ -285,11 +310,12 @@ int main()
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "projection"), 1, GL_FALSE, glm::value_ptr(projection));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "view"), 1, GL_FALSE, glm::value_ptr(view));
         model = glm::mat4(1.0f);
-        model = glm::translate(model, lightPos + movelightPos + glm::vec3(2.0f, 0.0f, -3.0f));
+        model = glm::translate(model, lightPos + movelightPos + glm::vec3(2.0f, 2.0f, -3.0f));
         model = glm::scale(model, glm::vec3(0.3f));
         glUniformMatrix4fv(glGetUniformLocation(lampshader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+        sun.Draw(lightingShader);
+        //glDrawArrays(GL_TRIANGLES, 0, 36);
         glBindVertexArray(0);
 
         // Swap the buffers

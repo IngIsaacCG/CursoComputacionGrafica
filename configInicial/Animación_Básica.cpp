@@ -282,6 +282,7 @@ int main()
 
 
 		glm::mat4 model(1);
+		glm::mat4 pibote(1);
 
 	
 		
@@ -292,16 +293,26 @@ int main()
 		Piso.Draw(lightingShader);
 
 		model = glm::mat4(1);
+		pibote = glm::mat4(1);
+		glEnable(GL_BLEND);//Avtiva la funcionalidad para trabajar el canal alfa
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 1);
+		model = glm::rotate(model, glm::radians(-rotBall), glm::vec3(0.0f, 1.0f, 0.0f));
+		pibote = model = glm::translate(model, glm::vec3(2.0f, 0.0f, 0.0f));//Traslacion del perro
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 0);
 		Dog.Draw(lightingShader);
 
 		model = glm::mat4(1);
+		pibote = glm::mat4(1);
 		glEnable(GL_BLEND);//Avtiva la funcionalidad para trabajar el canal alfa
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 1);
-		model = glm::translate(model, glm::vec3(0.0f, 0.05f+rotBall, 0.0f));//Traslacion de la pelota
+		model = glm::rotate(model, glm::radians(rotBall), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate((model), glm::vec3(2.0f, 0.0f, 0.0f));
+		//model = glm::translate(model, glm::vec3(0.0f, 0.05f+rotBall, 0.0f+rotBall));//Traslacion de la pelota
 		//model = glm::rotate(model, glm::radians(rotBall), glm::vec3(0.0f, 1.0f, 0.0f));//Rotacion de la pelota
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));//Se envia la matriz de modelo al shader, es importante enviarla despues de la rotacion para que se vea reflejada en el modelo
 	    Ball.Draw(lightingShader); 
@@ -454,7 +465,7 @@ bool sube = true;
 void Animation() {
 	if (AnimBall)
 	{
-		if (sube)
+		/*if (sube)
 		{
 			rotBall += 0.0005f; 
 			if (rotBall >= 1.25f)
@@ -469,7 +480,8 @@ void Animation() {
 			{
 				sube = true;  
 			}
-		}
+		}*/
+		rotBall += 0.1f;
 	}
 }
 

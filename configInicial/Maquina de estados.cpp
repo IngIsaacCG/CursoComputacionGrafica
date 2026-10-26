@@ -119,6 +119,7 @@ float tail = 0.0f;
 glm::vec3 dogPos (0.0f,0.0f,0.0f);
 float dogRot = 0.0f;
 bool step = false;
+float rotStep = 1.0f;
 
 
 
@@ -549,12 +550,26 @@ void Animation() {
 				step = false;
 			}
 		}
-		if(dogPos.z >= 2.4f)
+		if (dogPos.z >= 1.5f && dogPos.z < 2.0f)
 		{
-			dogAnim = 0;
+			if (rotStep == 1) 
+			{
+				dogRot += 0.2f;
+				if (dogRot >= 90.0f)
+				{
+					rotStep = 0;
+				}
+				dogPos.x += 0.005f;
+			}
 		}
-		dogPos.z += 0.0001f;
-		printf("\n%f", dogPos.z);
+		if (dogPos.z >= 2.0f)
+		{	
+			dogPos.z -= 0.001f;
+			//dogAnim = 0;
+		}
+		dogPos.z += 0.001f;
+		//dogPos.x += 0.001f;
+		printf("\n%f", dogRot);
 	}
 	
 }

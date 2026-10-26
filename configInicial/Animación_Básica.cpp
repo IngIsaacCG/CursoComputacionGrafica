@@ -1,7 +1,7 @@
 /*
 Isaac Chavez Garcia
-Previo 10
-18/10/2025
+Practica 10
+23/10/2025
 320299461
 */
 #include <iostream>
@@ -107,6 +107,9 @@ float vertices[] = {
 glm::vec3 Light1 = glm::vec3(0);
 //Anim
 float rotBall = 0;
+float rotDog = 0;
+float salto = 0;
+float subida = 0;
 bool AnimBall = false;
 
 
@@ -298,7 +301,8 @@ int main()
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 1);
-		model = glm::rotate(model, glm::radians(-rotBall), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::rotate(model, glm::radians(-rotDog), glm::vec3(0.0f, 1.0f, 0.0f));
+		model = glm::translate((model), glm::vec3(0.0f, salto, 0.0f));//agregar salto
 		pibote = model = glm::translate(model, glm::vec3(2.0f, 0.0f, 0.0f));//Traslacion del perro
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 0);
@@ -311,7 +315,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 1);
 		model = glm::rotate(model, glm::radians(rotBall), glm::vec3(0.0f, 1.0f, 0.0f));
-		model = glm::translate((model), glm::vec3(2.0f, 0.0f, 0.0f));
+		model = glm::translate((model), glm::vec3(2.0f, subida, 0.0f));
 		//model = glm::translate(model, glm::vec3(0.0f, 0.05f+rotBall, 0.0f+rotBall));//Traslacion de la pelota
 		//model = glm::rotate(model, glm::radians(rotBall), glm::vec3(0.0f, 1.0f, 0.0f));//Rotacion de la pelota
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));//Se envia la matriz de modelo al shader, es importante enviarla despues de la rotacion para que se vea reflejada en el modelo
@@ -462,26 +466,39 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 }
 bool sube = true;
 
+
 void Animation() {
+	//printf("Pelota -> X: %.2f | Z: %.2f\n", ballX, ballZ);
 	if (AnimBall)
 	{
-		/*if (sube)
+		if (sube)
 		{
-			rotBall += 0.0005f; 
-			if (rotBall >= 1.25f)
+			subida += 0.0005f; 
+			if (subida >= 1.645f)
 			{
-				sube = false; 
+				sube = false;
+			}
+			if (subida >= 0.05f && subida >= 0.1f)
+			{
+				salto = 0.0f;
 			}
 		}
 		else
 		{
-			rotBall -= 0.0005f; 
-			if (rotBall <= 0.0f)
+			subida -= 0.0005f;
+			if (subida <= 0.0f)
 			{
-				sube = true;  
+				printf("La pelota esta en la posicion del perro\n");
+				sube = true;//valor de subida de la pelota
 			}
-		}*/
-		rotBall += 0.1f;
+			if (subida >= 0.0f && subida <= 0.05f)
+			{
+				salto = 0.15f;
+			}
+		}	
+		//printf("subida: %f\n", subida);
+		rotBall += 0.025f;
+		rotDog += 0.03f;	
 	}
 }
 

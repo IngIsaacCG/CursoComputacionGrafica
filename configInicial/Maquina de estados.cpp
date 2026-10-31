@@ -119,7 +119,6 @@ float tail = 0.0f;
 glm::vec3 dogPos (0.0f,0.0f,0.0f);
 float dogRot = 0.0f;
 bool step = false;
-float rotStep = 1.0f;
 
 
 
@@ -512,66 +511,132 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		dogAnim = 1;
 
 	}
+	if (keys[GLFW_KEY_V])
+	{
+		dogAnim = 0;
+	}
 	
 }
 void Animation() {
 	if (AnimBall)
 	{
 		rotBall += 0.4f;
-		//printf("%f", rotBall);
 	}
-	
+
 	if (AnimDog)
 	{
 		rotDog -= 0.6f;
-		//printf("%f", rotBall);
 	}
-	if (dogAnim == 1)//Walk animation
+
+	if (dogAnim == 1) // Walk animation
 	{
-		if(!step) //State 1
-		{ 
-			RLegs += 0.3f;
-			FLegs += 0.3f;
-			head += 0.3f;
-			tail += 0.3f;
-			if(RLegs >= 15.0f) //Condition
+		// 1. Animación continua de las patas
+		if (!step)
+		{
+			RLegs += 0.03f;
+			FLegs += 0.03f;
+			head += 0.03f;
+			tail += 0.03f;
+			if (RLegs >= 15.0f)
 			{
 				step = true;
 			}
 		}
-		else 
+		else
 		{
-			RLegs -= 0.3f;
-			FLegs -= 0.3f;
-			head -= 0.3f;
-			tail -= 0.3f;
-			if(RLegs <= -15.0f) //Condition
+			RLegs -= 0.03f;
+			FLegs -= 0.03f;
+			head -= 0.03f;
+			tail -= 0.03f;
+			if (RLegs <= -15.0f)
 			{
 				step = false;
 			}
 		}
-		if (dogPos.z >= 1.5f && dogPos.z < 2.0f)
+
+		// 2. MÁQUINA DE ESTADOS (Basada en el recorrido 
+		static int estado = 0;
+
+		if (estado == 0) // Tramo E -> A (Hacia abajo en Z)
 		{
-			if (rotStep == 1) 
+			dogPos.z += 0.00085f;
+			dogPos.x += 0.0001f; 
+			dogRot += 0.008f; // Gira gradualmente
+			if (dogPos.z >= 2.0f) // Llegó al punto A
 			{
-				dogRot += 0.2f;
-				if (dogRot >= 90.0f)
-				{
-					rotStep = 0;
-				}
-				dogPos.x += 0.005f;
+				estado = 1; // Cambia al siguiente tramo
 			}
 		}
-		if (dogPos.z >= 2.0f)
-		{	
-			dogPos.z -= 0.001f;
-			//dogAnim = 0;
+		else if (estado == 1) // Tramo A -> B (Hacia la derecha en X)
+		{
+			dogPos.x += 0.00085f;
+			dogPos.z -= 0.0001f;
+			dogRot += 0.05f; // Gira gradualmente
+			if (dogRot >= 90.0f) // Limita la rotación a 90 grados
+			{
+				dogRot = 90.0f;
+			}
+			if (dogPos.x >= 2.0f) // Llegó al punto B (usando 2.0 para cuadrar el rectángulo)
+			{
+				estado = 2;
+			}
 		}
-		dogPos.z += 0.001f;
-		//dogPos.x += 0.001f;
-		printf("\n%f", dogRot);
-	}
+		else if (estado == 2) // Tramo B -> C (Hacia arriba en -Z)
+		{
+			dogPos.z -= 0.00085f;
+			dogPos.x -= 0.0001f;
+			dogRot += 0.055f;
+			if (dogRot >= 180.0f) // Limita la rotación a 180 grados
+			{
+				dogRot = 180.0f;
+			}
+			if (dogPos.z <= -2.0f) // Llegó al punto C
+			{
+				estado = 3;
+			}
+		}
+		else if (estado == 3) // Tramo C -> D (Hacia la izquierda en -X)
+		{
+			dogPos.x -= 0.00085f;
+			dogRot += 0.05f;
+			if (dogRot >= 270.0f) // Limita la rotación a 270 grados
+			{
+				dogRot = 270.0f;
+			}
+			if (dogPos.x <= -2.0f) // Llegó al punto D
+			{
+				estado = 4;
+			}
+		}
+		else if (estado == 4) // Tramo D -> E (Diagonal de regreso al centro)
+		{
+			dogRot += 0.05f;
+			if (dogRot >= 405.0f) // Limita la rotación a 360 grados
+			{
+				// Avanza en X y Z al mismo tiempo para hacer la diagonal hacia el origen (0,0)
+				dogPos.x += 0.00085f;
+				dogPos.z += 0.00085f;
+				dogRot = 405.0f;
+			}
+			// Si cualquiera de los dos ejes cruza el 0, significa que ya llegó al punto E (Centro)
+			if (dogPos.x >= 0.0f || dogPos.z >= 0.0f)
+			{
+				dogRot -= 0.05f; // Ajusta la rotación para que vuelva a mirar hacia A
+				if (dogRot >= 0.0f)
+				{
+					// FORZAMOS LAS COORDENADAS A 0 PARA QUE EL CICLO SEA INFINITO Y PERFECTO
+					dogPos.x = 0.0f;
+					dogPos.z = 0.0f;
+					dogRot = 0.0f; // Reiniciamos la rotación para que vuelva a mirar hacia A
+
+					estado = 0; // Regresa al estado 0 para volver a empezar el ciclo E -> A
+				}
 	
+			}
+		}
+
+		// printf("\nEstado=%d, Posx=%f, Posz=%f", estado, dogPos.x, dogPos.z);
+	}
 }
 
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)

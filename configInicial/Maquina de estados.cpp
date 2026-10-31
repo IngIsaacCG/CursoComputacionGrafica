@@ -1,8 +1,8 @@
 /*
 Isaac Chavez Garcia
 320299461
-Previo 11
-25 de octubre de 2023
+Practica 11
+30 de octubre de 2023
 */
 
 #include <iostream>
